@@ -1,7 +1,7 @@
 ---
 title: Feature-based Time Series Forecasting
 author: Thiyanga Talagala, \break Rob J Hyndman, George Athanasopoulos \break Feng Li, Yanfei Kang
-date:  "11 June 2019"
+date:  "11 July 2019"
 fontsize: 12pt
 classoption: compress
 toc: false
@@ -238,6 +238,11 @@ prepare_trainingset(accuracy_set = accuracy_m1, feature_set = features_m1)$train
 
 ## FFORMS classifer
 
+```r
+rf <- build_rf(training_set = training_set, 
+                testset= M3yearly_features,  rf_type="ru", ntree=100, seed=1, 
+               import=FALSE, mtry = 8)
+```
 
 \fontsize{8}{10}\sf
 ```{r echo=FALSE, message=FALSE, warning=FALSE, comment=NA, size='tiny'}
@@ -251,12 +256,58 @@ prep_trainingset <- prepare_trainingset(accuracy_set = accuracy_m1, feature_set 
 training_set <- prep_trainingset$trainingset
 yearly_m3 <- subset(M3, "yearly") # M3 dataset is used as a test set
 M3yearly_features <- seer::cal_features(yearly_m3, database="M3", h=6, highfreq = FALSE)
-rf <- build_rf(training_set = training_set, testset= M3yearly_features,  rf_type="ru", ntree=100, seed=1, 
+rf <- build_rf(training_set = training_set, testset= M3yearly_features,  
+               rf_type="ru", ntree=100, seed=1, 
                import=FALSE, mtry = 8)
 ```
 
-```{r}
-rf$
+### Predictions
+```r
+table(rf$predictions)
 ```
 
+\fontsize{8}{10}\sf
+```{r, eval=TRUE, size='tiny'}
+head(rf$predictions,10)
+```
+
+### FFORMS
+
+\fontsize{8}{10}\sf
+```r
+rf$randomforest
+```
+```{r, eval=TRUE, size='tiny'}
+rf$randomforest$call
+```
+
+## Pre-trained classifiers
+
+### Load hourly data FFORMS classifier
+
+```r
+data("hourly_fforms")
+```
+
+```{r, eval=TRUE, size='tiny'}
+data("hourly_fforms")
+```
+
+### Forecast hourly time series in the M4-competition 
+
+```r
+fcast.models <- predict(hourly_fforms, features_M4H)
+head(fcast.models)
+```
+
+```{r, eval=TRUE}
+data("features_M4H")
+```
+
+```{r, eval=TRUE, size='tiny'}
+fcast.models <- predict(hourly_fforms, features_M4H)
+head(fcast.models)
+```
+
+## FFORMPP: 
 
