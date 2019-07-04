@@ -19,24 +19,13 @@ output:
 
 ```{r setup, include=FALSE}
 library(knitr)
-knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE, cache=TRUE, dev.args=list(bg=grey(0.9), pointsize=11))
-library(ggplot2)
-library(patchwork)
-library(reshape2)
-library(grid)
-library(gridExtra)
-library(ggrepel)
-library(png)
+knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE, cache=FALSE, dev.args=list(bg=grey(0.9), pointsize=11))
 library(tsfeatures)
 library(tidyverse)
-library(ggpubr)
-library(RColorBrewer)
-library(dplyr)
 library(forecast)
-library(tidyr)
-library(rlang)
-library(tidyverse)
 library(Mcomp)
+library(pander)
+library(seer)
 ```
 
 
@@ -67,14 +56,11 @@ library(Mcomp)
 
 
 ```{r, warning=FALSE, message=F, echo=FALSE, fig.height=10}
-library(Mcomp)
-library(ggplot2)
 library(grid)
 library(gridExtra)
 library(ggrepel)
 library(png)
 library(tsfeatures)
-library(tidyverse)
 library(ggpubr)
 
 # Extract required series
@@ -116,5 +102,161 @@ ggplot(df, aes(x = trend, y = seasonality)) +
   \endcol
 \endcols
 
+## More features
+
+\begin{textblock}{12}(0.1,1.3)
+\begin{multicols}{2}
+  \begin{itemize}\tightlist
+    \item length
+    \item strength of seasonality
+    \item strength of trend
+    \item linearity
+    \item curvature
+    \item spikiness
+    \item stability
+    \item lumpiness
+    \item spectral entropy
+    \item Hurst exponent
+    \item nonlinearity
+    \item unit root test statistics
+    \item parameter estimates of Holt's linear trend method
+    \item parameter estimates of Holt-Winters' additive method
+    \item ACF and PACF based features - calculated on raw, differenced, seasonally-differenced series and remainder series.
+    \end{itemize}
+\end{multicols}
+\end{textblock}
+
+
+## Algorithm selection framework
+
+\begin{tikzpicture}
+    \node<1> (img1) {\centerline{\includegraphics[width=\paperwidth]{img/f1.png}}};
+    \node<2> (img2) {\centerline{\includegraphics[width=\paperwidth]{img/f2.png}}};
+    \node<3> (img3) {\centerline{\includegraphics[width=\paperwidth]{img/f3.png}}};
+    \node<4> (img4) {\centerline{\includegraphics[width=\paperwidth]{img/f4.png}}};
+    \node<5> (img5) {\centerline{\includegraphics[width=\paperwidth]{img/f5.png}}};
+    \node<6> (img6) {\centerline{\includegraphics[width=\paperwidth]{img/f6.png}}};
+    \node<7> (img7) {\centerline{\includegraphics[width=\paperwidth]{img/f7.png}}};
+    \node<8> (img8) {\centerline{\includegraphics[width=\paperwidth]{img/f8.png}}};
+    \node<9> (img9) {\centerline{\includegraphics[width=\paperwidth]{img/f9.png}}};
+    \node<10> (img10) {\centerline{\includegraphics[width=\paperwidth]{img/f10.png}}};
+    \node<11> (img11) {\centerline{\includegraphics[width=\paperwidth]{img/f11.png}}};
+    \node<12> (img12) {\centerline{\includegraphics[width=\paperwidth]{img/f12.png}}};
+    \node<13> (img13) {\centerline{\includegraphics[width=\paperwidth]{img/f13.png}}};
+    \node<14> (img14) {\centerline{\includegraphics[width=\paperwidth]{img/fh14.png}}};
+\end{tikzpicture}
+
+## FFORMS: Feature-based FORecast Model Selection
+
+ \centerline{\includegraphics[width=\paperwidth]{img/fformsd1.png}}
+ 
+* \fontsize{8}{8}{three algorithms: \colorbox{violet}{\color{white}{FFORMS}}, FFORMPP}
+
+## \fontsize{12}{12}\bf\sffamily FFORMPP: Feature-based FORecast Model Performance Prediction
+
+ \centerline{\includegraphics[width=\paperwidth]{img/fformppd1.png}}
+ 
+* \fontsize{8}{8}{three algorithms: \colorbox{violet}{\color{white}{FFORMS}}, \colorbox{cyan}{\color{black}{FFORMPP}}}
+
+
+## `seer` R package
+
+\textbf{Installation}
+```r
+devtools::install_github("thiyangt/seer")
+library(seer)
+```
+\begin{tikzpicture}[remember picture,overlay]  
+  \node [xshift=-1.5cm,yshift=-2cm] at (current page.north east)
+    {\includegraphics[width=\textwidth,height=3cm,keepaspectratio]{img/seer.png}};
+\end{tikzpicture}
+
+\pause
+
+\textbf{Example datasets}
+
+\colorbox{blue}{\textbf{\color{white}{observed time series - M1 yearly series (181)}}}
+
+```r
+library(Mcomp)
+yearlym1 <- subset(M1, "yearly")
+```
+\pause
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, comment=NA, size='tiny'}
+library(Mcomp)
+yearlym1 <- subset(M1, "yearly")
+```
+
+
+
+## Input: features
+
+```r
+cal_features(yearlym1[1:3], database="M1",
+h=6, highfreq=FALSE)
+
+```
+\fontsize{8}{10}\sf
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, comment=NA, size='tiny'}
+seer::cal_features(yearlym1[1:2], database="M1", h=6, highfreq=FALSE) 
+```
+
+## Input: features
+
+\fontsize{8}{8}\sf
+
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, comment=NA, size='tiny'}
+seer::fcast_accuracy(tslist=yearlym1[1:2], 
+               models= c("arima","ets","rw","rwd", "theta", "nn"), 
+               database ="M1", cal_MASE, h=6, 
+               length_out = 1, 
+               fcast_save = TRUE)
+```
+
+## Training set
+
+```r
+prepare_trainingset(accuracy_set = accuracy_m1, 
+feature_set = features_m1)$trainingset
+```
+
+\fontsize{8}{10}\sf
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, comment=NA, size='tiny'}
+data(M1)
+yearly_m1 <- subset(M1, "yearly")
+accuracy_m1 <- fcast_accuracy(tslist=yearly_m1[1:2], models= c("arima","ets","rw","rwd", "theta", "nn"), database ="M1", cal_MASE, h=6, length_out = 1, fcast_save = TRUE)
+features_m1 <- cal_features(yearly_m1[1:2], database="M1", h=6, highfreq = FALSE)
+
+# prepare training set
+prepare_trainingset(accuracy_set = accuracy_m1, feature_set = features_m1)$trainingset
+```
+
+## FFORMS classifer
+
+
+\fontsize{8}{10}\sf
+```{r echo=FALSE, message=FALSE, warning=FALSE, comment=NA, size='tiny'}
+# steps 3 and 4 applied to yearly series of M1 competition
+data(M1)
+yearly_m1 <- subset(M1, "yearly")
+accuracy_m1 <- fcast_accuracy(tslist=yearly_m1, models= c("arima","ets","rw","rwd", "theta", "nn"), database ="M1", cal_MASE, h=6, length_out = 1, fcast_save = TRUE)
+features_m1 <- cal_features(yearly_m1, database="M1", h=6, highfreq = FALSE)
+# prepare training set
+prep_trainingset <- prepare_trainingset(accuracy_set = accuracy_m1, feature_set = features_m1)
+training_set <- prep_trainingset$trainingset
+yearly_m3 <- subset(M3, "yearly") # M3 dataset is used as a test set
+M3yearly_features <- seer::cal_features(yearly_m3, database="M3", h=6, highfreq = FALSE)
+rf <- build_rf(training_set = training_set, testset= M3yearly_features,  rf_type="ru", ntree=100, seed=1, 
+               import=FALSE, mtry = 8)
+```
+
+```{r}
+rf$
+```
 
 
