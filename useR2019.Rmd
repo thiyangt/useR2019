@@ -204,7 +204,7 @@ h=6, highfreq=FALSE)
 seer::cal_features(yearlym1[1:2], database="M1", h=6, highfreq=FALSE) 
 ```
 
-## Input: features
+## Output: class labels
 
 \fontsize{10}{10}\sf
 ```r 
