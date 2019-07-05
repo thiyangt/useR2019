@@ -1,6 +1,6 @@
 ---
 title: Feature-based Time Series Forecasting
-author: Thiyanga Talagala, \break Rob J Hyndman, George Athanasopoulos \break Feng Li, Yanfei Kang
+author: Thiyanga Talagala, \break Rob J Hyndman, George Athanasopoulos, \break Feng Li, Yanfei Kang
 date:  "11 July 2019"
 fontsize: 12pt
 classoption: compress
