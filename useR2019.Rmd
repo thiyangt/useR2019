@@ -321,6 +321,10 @@ fcast.models <- predict(hourly_fforms, features_M4H)
 head(fcast.models)
 ```
 
+## \fontsize{10}{10}\sffamily Yearly: Correlation between MASE values across different forecast-models
+
+\centerline{\includegraphics[width=8cm]{img/corY.png}}
+
 ## FFORMPP: Feature-based FORecast Model Performance Prediction
 
 \centerline{\includegraphics[width=8cm]{img/mul.png}}
@@ -417,6 +421,6 @@ M4-3rd & 3.13 & 1.23 &  0.95& 2.16 & 2.64 & 0.87\\\hline
 Available from \bf{robjhyndman.com}
 \end{alertblock}
 
-Slides: \bf{https://thiyanga.netlify.com/talks/user2019.pdf}
+Slides: \bf{https://thiyanga.netlify.com/talk/user19-talk/}
 
 email: \textcolor{blue}{\bf{thiyanga.talagala@monash.edu}}
