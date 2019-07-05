@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.6.10)  6 JUL 2019 01:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.6.10)  6 JUL 2019 01:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2677,17 +2677,13 @@ Overfull \vbox (10.3702pt too high) detected at line 751
 
 ]
 LaTeX Font Info:    Font shape `T1/Carlito-TLF/m/n' will be
-(Font)              scaled to size 14.0pt on input line 773.
+(Font)              scaled to size 14.0pt on input line 771.
 LaTeX Font Info:    Font shape `T1/Carlito-TLF/bx/n' in size <14> not available
 
 (Font)              Font shape `T1/Carlito-TLF/b/n' tried instead on input line
- 773.
+ 771.
 LaTeX Font Info:    Font shape `T1/Carlito-TLF/b/n' will be
-(Font)              scaled to size 14.0pt on input line 773.
-
-Overfull \vbox (7.47086pt too high) detected at line 773
- []
-
+(Font)              scaled to size 14.0pt on input line 771.
 [38
 
 ]
@@ -2704,11 +2700,11 @@ Overfull \vbox (7.47086pt too high) detected at line 773
 Package caption Warning: Unused \captionsetup[figure] on input line 217.
 See the caption package documentation for explanation.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 778.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 778.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 776.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 776.
 (./useR2019.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 778.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 778.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 776.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 776.
 Package rerunfilecheck Info: File `useR2019.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
@@ -2737,7 +2733,7 @@ inyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></Users/thiyangashaminitalag
 ala/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt8.pfb></Users/thiyanga
 shaminitalagala/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/
 msam10.pfb>
-Output written on useR2019.pdf (38 pages, 3660472 bytes).
+Output written on useR2019.pdf (38 pages, 3660113 bytes).
 PDF statistics:
  402 PDF objects out of 1000 (max. 8388607)
  299 compressed objects within 3 object streams

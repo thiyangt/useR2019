@@ -417,10 +417,9 @@ M4-3rd & 3.13 & 1.23 &  0.95& 2.16 & 2.64 & 0.87\\\hline
 \end{itemize}
 \end{alertblock}
 
-\begin{alertblock}{Papers}
-Available from \bf{robjhyndman.com}
+\begin{alertblock}{Papers and Slides}
+\bf{thiyanga.netlify.com/talk/user19-talk/}
 \end{alertblock}
 
-Slides: \bf{https://thiyanga.netlify.com/talk/user19-talk/}
 
 email: \textcolor{blue}{\bf{thiyanga.talagala@monash.edu}}
