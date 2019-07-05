@@ -243,7 +243,7 @@ features_m1 <- cal_features(yearly_m1[1:2], database="M1", h=6, highfreq = FALSE
 prepare_trainingset(accuracy_set = accuracy_m1, feature_set = features_m1)$trainingset
 ```
 
-## FFORMS classifer
+## FFORMS classifier
 
 \fontsize{12}{12}\sf
 ```r
@@ -269,7 +269,7 @@ rf <- build_rf(training_set = training_set, testset= M3yearly_features,
                rf_type="ru", ntree=100, seed=1, 
                import=FALSE, mtry = 8)
 ```
-
+\fontsize{8}{8}\sf
 \colorbox{red}{\textbf{\color{white}{Predictions}}}
 \fontsize{8}{8}\sf
 ```r
@@ -293,7 +293,7 @@ rf$randomforest$call
 
 ## Pre-trained classifiers
 
-\textcolor{red}{\textbf{Load hourly data FFORMS classifier}}
+\textbf{Load hourly data FFORMS classifier}
 
 ```r
 data("hourly_fforms")
@@ -303,7 +303,9 @@ data("hourly_fforms")
 data("hourly_fforms")
 ```
 
-\textcolor{red}{\textbf{Forecast hourly time series in the M4-competition}}
+\pause
+
+\textbf{Forecast hourly time series in the M4-competition}
 
 ```r
 fcast.models <- predict(hourly_fforms, features_M4H)
@@ -319,5 +321,102 @@ fcast.models <- predict(hourly_fforms, features_M4H)
 head(fcast.models)
 ```
 
-## FFORMPP:
+## FFORMPP: Feature-based FORecast Model Performance Prediction
 
+\centerline{\includegraphics[width=8cm]{img/mul.png}}
+
+- Efficient Bayesian Multivariate Surface Regression (Feng Li &  Mattias Villani, 2013)
+     - handles interactions and nonlinear relationships 
+     - allows the knot locations to move freely in the feature space
+
+## `fformpp` R package
+
+\textbf{Installation}
+
+```r
+devtools::install_github("thiyangt/fformpp")
+library(fformpp)
+```
+
+\textbf{Train a model}
+
+\fontsize{11}{11}\sf
+```r
+fit_fformpp(feamat=features_mat, accmat=forecast.error, 
+            sknots=2, aknots=2,
+            fix.s=0, fix.a=0, fix.shrinkage=1:5,            
+            fix.covariance=0,
+            fix.coefficients=0, n.iter=100,
+            knot.moving.algorithm="Random-Walk",
+            ptype=c("identity", "identity", "identity"),
+            prior.knots=100)
+
+```
+
+## FFORMPP: online phase
+
+\fontsize{10}{12}\sf
+```r
+predict.m1 <- predict(fformpp.model, features.m1.df,
+        c("ets", "arima", "rw", "rwd", "wn", "theta", "nn"),
+        log=FALSE, final.estimate=median)
+head(predict.m1)
+
+```
+\fontsize{8}{8}\sf
+```{r}
+library(fformpp)
+data("fformpp.model")
+data("features.df.m1")
+predict.m1 <- predict_fformpp(fformpp.model, features.df.m1, c("ets", "arima", "rw", "rwd", "wn", "theta", "nn"), log=FALSE, final.estimate=median)
+head(predict.m1)
+```
+
+
+
+## Results: M4 Competition data
+
+\begin{table}[!h]
+\centering\scriptsize\tabcolsep=0.12cm
+\begin{tabular}{l|rrrrrr}
+ & Yearly & Quarterly & Monthly & Weekly & Daily & Hourly \\\hline
+\textcolor{red}{FFORMS\_individual} & 3.17 &  1.20 &  0.98&  2.31 & 3.57 &  0.84\\
+\textcolor{blue}{FFORMPP\_combination} & 3.07 &  1.13 &  0.89&  2.46 & 3.62 &  0.96\\\hline
+auto.arima & 3.40 &1.17  &0.93  & 2.55 &  -& - \\
+ets & 3.44 &  1.16& 0.95 &  -&-  &  -\\
+theta & 3.37 &1.24  & 0.97 &2.64  & 3.33 & 1.59 \\
+rwd & 3.07 & 1.33 & 1.18  & 2.68  & 3.25 & 11.45 \\
+rw & 3.97 & 1.48 & 1.21  &2.78  & 3.27 & 11.60 \\
+nn & 4.06 & 1.55 &  1.14 &4.04 & 3.90 & 1.09 \\
+stlar & - & 2.02 &  1.33& 3.15 & 4.49 & 1.49 \\
+snaive & - &  1.66& 1.26 &  2.78& 24.46 & 2.86 \\
+tbats & - & 1.19 &  1.05& 2.49 & 3.27 &  1.30\\
+wn & 13.42 &  6.50&  4.11&  49.91& 38.07 & 11.68 \\
+mstlarima & - & - &  - & - & 3.84 &  1.12\\
+mstlets & - &  - &  - &  - & 3.73 &  1.23\\
+combination (mean) & 4.09 & 1.58 &  1.16&6.96  & 7.94 & 3.93 \\\hline
+M4-1st & 2.98 & 1.12 &  0.88& 2.36 & 3.45 & 0.89\\
+M4-2nd & 3.06 & 1.11 &  0.89& 2.11 & 3.34 & 0.81\\
+M4-3rd & 3.13 & 1.23 &  0.95& 2.16 & 2.64 & 0.87\\\hline
+\end{tabular}
+\end{table}
+
+## Thank you
+
+\textbf{R packages and papers}
+\fontsize{14}{17}\sf
+
+\begin{alertblock}{R packages}
+\begin{itemize}\tightlist
+ \item \alert{seer}: FFORMS \newline\textbf{github.com/thiyangt/seer}
+ \item \alert{fformpp}: FFORMPP \newline\textbf{github.com/thiyangt/fformpp}
+\end{itemize}
+\end{alertblock}
+
+\begin{alertblock}{Papers}
+Available from \bf{robjhyndman.com}
+\end{alertblock}
+
+Slides: \bf{https://thiyanga.netlify.com/talks/user2019.pdf}
+
+email: \textcolor{blue}{\bf{thiyanga.talagala@monash.edu}}

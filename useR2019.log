@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.6.10)  5 JUL 2019 10:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.6.10)  5 JUL 2019 11:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2564,15 +2564,15 @@ Overfull \vbox (271.34268pt too high) detected at line 526
 \openout4 = `useR2019.vrb'.
 
 (./useR2019.vrb
-LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <8> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 19.
 LaTeX Font Info:    Font shape `T1/Carlito-TLF/bx/n' in size <8> not available
 (Font)              Font shape `T1/Carlito-TLF/b/n' tried instead on input line
- 29.
+ 17.
 LaTeX Font Info:    Font shape `T1/Carlito-TLF/b/n' will be
-(Font)              scaled to size 8.0pt on input line 29.
+(Font)              scaled to size 8.0pt on input line 17.
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <8> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 21.
 )
-Overfull \vbox (8.50334pt too high) detected at line 599
+Overfull \vbox (5.39209pt too high) detected at line 601
  []
 
 [30
@@ -2581,14 +2581,100 @@ Overfull \vbox (8.50334pt too high) detected at line 599
 \openout4 = `useR2019.vrb'.
 
 (./useR2019.vrb
-Overfull \hbox (90.34337pt too wide) in paragraph at lines 25--25
+Overfull \hbox (90.34337pt too wide) in paragraph at lines 27--27
 []\T1/lmtt/m/n/12 ## Levels: mstlarima mstlets nn rw rwd snaive stlar tbats the
 ta wn[] 
  []
 
 ) [31
 
-] [32
+] (./useR2019.vrbpdfTeX warning (ext4): destination with the same identifier (n
+ame{pre-trained-classifiers}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2 ...tect\hypertarget{pre-trained-classifiers}{}
+                                                  
+Overfull \hbox (90.34337pt too wide) in paragraph at lines 27--27
+[]\T1/lmtt/m/n/12 ## Levels: mstlarima mstlets nn rw rwd snaive stlar tbats the
+ta wn[] 
+ []
+
+) [32
+
+]
+<img/mul.png, id=293, 1156.32pt x 650.43pt>
+File: img/mul.png Graphic file (type png)
+<use img/mul.png>
+Package pdftex.def Info: img/mul.png  used on input line 654.
+(pdftex.def)             Requested size: 227.60759pt x 128.02927pt.
+LaTeX Font Info:    Font shape `T1/Carlito-TLF/m/n' will be
+(Font)              scaled to size 10.95pt on input line 654.
+LaTeX Font Info:    Font shape `OT1/Carlito-TLF/m/n' will be
+(Font)              scaled to size 6.0pt on input line 654.
+LaTeX Font Info:    Font shape `OT1/Carlito-TLF/m/n' will be
+(Font)              scaled to size 5.0pt on input line 654.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 654.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 654.
+LaTeX Font Info:    Font shape `T1/Carlito-TLF/m/n' will be
+(Font)              scaled to size 5.0pt on input line 654.
+LaTeX Font Info:    Font shape `T1/Carlito-TLF/m/it' will be
+(Font)              scaled to size 6.0pt on input line 654.
+LaTeX Font Info:    Font shape `T1/Carlito-TLF/m/it' will be
+(Font)              scaled to size 5.0pt on input line 654.
+
+Overfull \vbox (9.31181pt too high) detected at line 654
+ []
+
+[33
+
+ <./img/mul.png>]
+\openout4 = `useR2019.vrb'.
+
+(./useR2019.vrb
+LaTeX Font Info:    Font shape `T1/Carlito-TLF/m/n' will be
+(Font)              scaled to size 11.0pt on input line 15.
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <11> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 19.
+)
+Overfull \vbox (2.02406pt too high) detected at line 685
+ []
+
+[34
+
+]
+\openout4 = `useR2019.vrb'.
+
+(./useR2019.vrb) [35
+
+]
+LaTeX Font Info:    Font shape `OT1/Carlito-TLF/m/n' will be
+(Font)              scaled to size 8.0pt on input line 743.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 743.
+LaTeX Font Info:    Font shape `T1/Carlito-TLF/m/it' will be
+(Font)              scaled to size 8.0pt on input line 743.
+
+Overfull \vbox (10.3702pt too high) detected at line 743
+ []
+
+[36
+
+]
+LaTeX Font Info:    Font shape `T1/Carlito-TLF/m/n' will be
+(Font)              scaled to size 14.0pt on input line 765.
+LaTeX Font Info:    Font shape `T1/Carlito-TLF/bx/n' in size <14> not available
+
+(Font)              Font shape `T1/Carlito-TLF/b/n' tried instead on input line
+ 765.
+LaTeX Font Info:    Font shape `T1/Carlito-TLF/b/n' will be
+(Font)              scaled to size 14.0pt on input line 765.
+
+Overfull \vbox (27.02075pt too high) detected at line 765
+ []
+
+[37
 
 ]
 \tf@nav=\write7
@@ -2604,24 +2690,20 @@ ta wn[]
 Package caption Warning: Unused \captionsetup[figure] on input line 217.
 See the caption package documentation for explanation.
 
-
-Package caption Warning: Unused \captionsetup[table] on input line 218.
-See the caption package documentation for explanation.
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 637.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 637.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 770.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 770.
 (./useR2019.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 637.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 637.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 770.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 770.
 Package rerunfilecheck Info: File `useR2019.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 40251 strings out of 494553
- 774406 string characters out of 6174236
+ 40461 strings out of 494553
+ 779257 string characters out of 6174236
  839243 words of memory out of 5000000
- 43078 multiletter control sequences out of 15000+600000
- 684518 words of font info for 110 fonts, out of 8000000 for 9000
+ 43257 multiletter control sequences out of 15000+600000
+ 758635 words of font info for 151 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  68i,14n,92p,1835b,893s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/Users/thiyangashaminitalagala/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm
@@ -2638,11 +2720,13 @@ iyangashaminitalagala/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm
 pe1/public/lm/lmtk10.pfb></Users/thiyangashaminitalagala/Library/TinyTeX/texmf-
 dist/fonts/type1/public/lm/lmtt10.pfb></Users/thiyangashaminitalagala/Library/T
 inyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></Users/thiyangashaminitalag
-ala/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt8.pfb>
-Output written on useR2019.pdf (32 pages, 3555777 bytes).
+ala/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt8.pfb></Users/thiyanga
+shaminitalagala/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/
+msam10.pfb>
+Output written on useR2019.pdf (37 pages, 3629478 bytes).
 PDF statistics:
- 347 PDF objects out of 1000 (max. 8388607)
- 254 compressed objects within 3 object streams
- 78 named destinations out of 1000 (max. 500000)
- 8441 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 394 PDF objects out of 1000 (max. 8388607)
+ 293 compressed objects within 3 object streams
+ 92 named destinations out of 1000 (max. 500000)
+ 12548 words of extra memory for PDF output out of 14400 (max. 10000000)
 
