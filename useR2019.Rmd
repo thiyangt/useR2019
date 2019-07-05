@@ -47,7 +47,7 @@ library(seer)
 
 \fontsize{13}{14}\sf
 
-* Transform a given time series $y=\{y_1, y_2, \cdots, y_n\}$ to a feature vector $F = (f_1(y), f_2(y), \cdots, f_p(y))'$}.
+* Transform a given time series $y=\{y_1, y_2, \cdots, y_n\}$ to a feature vector $F = (f_1(y), f_2(y), \cdots, f_p(y))'$.
 
 \pause
 
@@ -193,7 +193,7 @@ yearlym1 <- subset(M1, "yearly")
 ## Input: features
 
 ```r
-cal_features(yearlym1[1:3], database="M1",
+cal_features(yearlym1[1:2], database="M1",
 h=6, highfreq=FALSE)
 
 ```
