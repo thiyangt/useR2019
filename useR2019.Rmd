@@ -224,6 +224,10 @@ seer::fcast_accuracy(tslist=yearlym1[1:2],
                fcast_save = TRUE)
 ```
 
+\only<2>{\begin{textblock}{3}(9,4)
+\begin{alertblock}{MASE}\fontsize{10}{10}\sf $q_t = \frac{e_t}{\frac{1}{n-1}\sum_{i=2}^{n}{|Y_i-Y_{i-1}|}}$ \vspace{0.5cm}\newline $MASE=mean(|q_t|)$\phantom{dg}\end{alertblock}
+\end{textblock}}
+
 ## Training set
 
 ```r
@@ -242,6 +246,8 @@ features_m1 <- cal_features(yearly_m1[1:2], database="M1", h=6, highfreq = FALSE
 # prepare training set
 prepare_trainingset(accuracy_set = accuracy_m1, feature_set = features_m1)$trainingset
 ```
+
+
 
 ## FFORMS classifier
 
