@@ -173,7 +173,7 @@ library(seer)
 
 \pause
 
-\textbf{Example datasets}
+\textbf{Example dataset}
 
 \colorbox{blue}{\textbf{\color{white}{observed time series - M1 yearly series (181)}}}
 
