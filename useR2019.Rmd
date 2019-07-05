@@ -150,13 +150,13 @@ ggplot(df, aes(x = trend, y = seasonality)) +
 
  \centerline{\includegraphics[width=\paperwidth]{img/fformsd1.png}}
  
-* \fontsize{8}{8}{three algorithms: \colorbox{violet}{\color{white}{FFORMS}}, FFORMPP}
+* \fontsize{8}{8}{two algorithms: \colorbox{violet}{\color{white}{FFORMS}}, FFORMPP}
 
 ## \fontsize{12}{12}\bf\sffamily FFORMPP: Feature-based FORecast Model Performance Prediction
 
  \centerline{\includegraphics[width=\paperwidth]{img/fformppd1.png}}
  
-* \fontsize{8}{8}{three algorithms: \colorbox{violet}{\color{white}{FFORMS}}, \colorbox{cyan}{\color{black}{FFORMPP}}}
+* \fontsize{8}{8}{two algorithms: \colorbox{violet}{\color{white}{FFORMS}}, \colorbox{cyan}{\color{black}{FFORMPP}}}
 
 
 ## `seer` R package
@@ -293,7 +293,7 @@ rf$randomforest$call
 
 ## Pre-trained classifiers
 
-\textbf{Load hourly data FFORMS classifier}
+\textbf{Load FFORMS classifier for hourly series}
 
 ```r
 data("hourly_fforms")
