@@ -206,12 +206,19 @@ seer::cal_features(yearlym1[1:2], database="M1", h=6, highfreq=FALSE)
 
 ## Input: features
 
-\fontsize{8}{8}\sf
-
-
-```{r echo=TRUE, message=FALSE, warning=FALSE, comment=NA, size='tiny'}
+\fontsize{10}{10}\sf
+```r 
 seer::fcast_accuracy(tslist=yearlym1[1:2], 
-               models= c("arima","ets","rw","rwd", "theta", "nn"), 
+               models= c("arima","ets","rw", "theta", "nn"), 
+               database ="M1", cal_MASE, h=6, 
+               length_out = 1, 
+               fcast_save = TRUE)
+```
+
+\fontsize{6}{6}\sf
+```{r echo=FALSE, message=FALSE, warning=FALSE, comment=NA, size='tiny'}
+seer::fcast_accuracy(tslist=yearlym1[1:2], 
+               models= c("arima","ets","rw","theta", "nn"), 
                database ="M1", cal_MASE, h=6, 
                length_out = 1, 
                fcast_save = TRUE)
@@ -238,13 +245,15 @@ prepare_trainingset(accuracy_set = accuracy_m1, feature_set = features_m1)$train
 
 ## FFORMS classifer
 
+\fontsize{12}{12}\sf
 ```r
 rf <- build_rf(training_set = training_set, 
-                testset= M3yearly_features,  rf_type="ru", ntree=100, seed=1, 
+                testset= M3yearly_features,  
+                rf_type="ru", ntree=100, seed=1, 
                import=FALSE, mtry = 8)
 ```
 
-\fontsize{8}{10}\sf
+
 ```{r echo=FALSE, message=FALSE, warning=FALSE, comment=NA, size='tiny'}
 # steps 3 and 4 applied to yearly series of M1 competition
 data(M1)
@@ -261,19 +270,20 @@ rf <- build_rf(training_set = training_set, testset= M3yearly_features,
                import=FALSE, mtry = 8)
 ```
 
-### Predictions
+\colorbox{red}{\textbf{\color{white}{Predictions}}}
+\fontsize{8}{8}\sf
 ```r
-table(rf$predictions)
+head(rf$predictions)
 ```
 
-\fontsize{8}{10}\sf
 ```{r, eval=TRUE, size='tiny'}
-head(rf$predictions,10)
+head(rf$predictions)
 ```
 
-### FFORMS
+\colorbox{red}{\textbf{\color{white}{FFORMS classifier}}}
 
-\fontsize{8}{10}\sf
+
+\fontsize{8}{8}\sf
 ```r
 rf$randomforest
 ```
@@ -283,7 +293,7 @@ rf$randomforest$call
 
 ## Pre-trained classifiers
 
-### Load hourly data FFORMS classifier
+\textcolor{red}{\textbf{Load hourly data FFORMS classifier}}
 
 ```r
 data("hourly_fforms")
@@ -293,7 +303,7 @@ data("hourly_fforms")
 data("hourly_fforms")
 ```
 
-### Forecast hourly time series in the M4-competition 
+\textcolor{red}{\textbf{Forecast hourly time series in the M4-competition}}
 
 ```r
 fcast.models <- predict(hourly_fforms, features_M4H)
@@ -309,5 +319,5 @@ fcast.models <- predict(hourly_fforms, features_M4H)
 head(fcast.models)
 ```
 
-## FFORMPP: 
+## FFORMPP:
 
